@@ -13,3 +13,10 @@
 
 ## This is an image added
 ![Java Logo](https://logos-world.net/wp-content/uploads/2022/07/Java-Logo.png)
+
+## This is a code example
+```javascript
+  let x = 100;
+  x = 200;
+  console.log(x);
+```
