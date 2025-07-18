@@ -1,0 +1,22 @@
+name: Manual Course Completion
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+  issues: write
+
+jobs:
+  find_exercise:
+    name: Find Exercise Issue
+    uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.6.0
+
+  trigger_completion:
+    name: Trigger Course Completion
+    needs: [find_exercise]
+    uses: skills/exercise-toolkit/.github/workflows/finish-exercise.yml@v0.6.0
+    with:
+      issue-url: ${{ needs.find_exercise.outputs.issue-url }}
+      exercise-title: "Communicate using Markdown" 
